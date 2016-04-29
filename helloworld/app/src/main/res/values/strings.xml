@@ -2,4 +2,8 @@
     <string name="app_name">hello world</string>
     <string name="action_settings">Settings</string>
     <string name="i_am_a_llama">i am a llama</string>
+    <string name="increment">+</string>
+    <string name="decreament">-</string>
+    <string name="title">my great app</string>
+    <string name="show_score">show score</string>
 </resources>

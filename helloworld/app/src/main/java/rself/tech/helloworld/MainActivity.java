@@ -8,24 +8,41 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+private int count =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //Button increament = (Button)findViewById(R.id.increament);
+        final Button increament = getIcreament("increament");
+        final Button deincreament = getDeincrement("decreament");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "this is a chicken", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        increament.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                count++;
             }
         });
+
+        deincreament.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                count--;
+            }
+        });
+
+    }
+
+    private Button getIcreament(String s){
+        int resID = getResources().getIdentifier(s,"id","rself.tech.helloworld");
+        return (Button) findViewById(resID);
+    }
+    private Button getDeincrement(String s){
+        int resID = getResources().getIdentifier(s,"id","rself.tech.helloworld");
+        return (Button) findViewById(resID);
     }
 
     @Override
@@ -34,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
